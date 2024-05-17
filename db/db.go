@@ -16,7 +16,7 @@ type Collections struct {
 	Login     *mongo.Collection
 }
 
-var AllCollections Collections
+var allCollections Collections
 
 func init() {
 	fmt.Println("initializing db package...")
@@ -33,7 +33,7 @@ func connectDB() {
 	fmt.Println("Connected to DB...")
 	dbConnection := client.Database("G10CRUD")
 
-	AllCollections = Collections{
+	allCollections = Collections{
 		Employees: dbConnection.Collection("employees"),
 		Login:     dbConnection.Collection("login"),
 	}
@@ -41,5 +41,5 @@ func connectDB() {
 }
 
 func GetAllCollections() Collections {
-	return AllCollections
+	return allCollections
 }
